@@ -7,10 +7,10 @@ import {Hero} from '../model/hero'
 })
 export class HeroesComponent implements OnInit {
 
- private hero: Hero = { 
-                        id: 1,
-                        name: 'Windstorm'
-                      };
+  hero: Hero = { 
+                id: 1,
+                name: 'Windstorm'
+              };
   constructor() { }
 
   ngOnInit() {

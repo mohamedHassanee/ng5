@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
+import {SecurityService} from './security/security.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,16 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
 
-constructor(private rout:ActivatedRoute){}
+constructor(private router:Router , private service:SecurityService){}
 
   title = 'app';
-  private isLoggedIn:boolean = false;
+   isLoggedIn:boolean = false;
 
-  private login(){
+   login(){
     this.isLoggedIn = true;
   } 
 
-  private logout(){
+   logout(){
       this.isLoggedIn = false;
+      this.service.authenticated = false;
+      this.router.navigateByUrl('/login');
   }
 }

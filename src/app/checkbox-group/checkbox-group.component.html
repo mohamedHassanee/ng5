@@ -1,0 +1,13 @@
+<form [formGroup]="form" (submit)="submit(form.value)">
+    <input type="text" [(ngModel)]="user.name" formControlName="name" placeholder="Name" />
+    <div *ngFor="let skill of skills.controls; let i=index">
+     <input type="checkbox" (change)="checkboxChanged(form.value)" [formControl]="skill" /> {{user.skills[i].name}}
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<h3>Form Data</h3>
+{{ form.value | json }} - {{form.valid}}
+<hr>
+<h3>Model Data</h3>
+{{user | json}}
