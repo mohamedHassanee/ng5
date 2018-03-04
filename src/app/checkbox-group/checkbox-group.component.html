@@ -1,6 +1,6 @@
 <form [formGroup]="form" (submit)="submit(form.value)">
     <input type="text" [(ngModel)]="user.name" formControlName="name" placeholder="Name" />
-    <div *ngFor="let skill of skills.controls; let i=index">
+    <div *ngFor="let skill of skills['controls']; let i=index">
      <input type="checkbox" (change)="checkboxChanged(form.value)" [formControl]="skill" /> {{user.skills[i].name}}
     </div>
     <button type="submit">Submit</button>
